@@ -1,28 +1,46 @@
 import { NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { get, put, del, list } from '@vercel/blob'
 
-const dataPath = path.join(process.cwd(), 'data', 'builds.json')
+const BLOB_PATH = 'data/builds.json'
 
-// 读取 builds 数据
-function readBuilds() {
+/**
+ * 读取 builds 数据
+ * 从 Vercel Blob 存储中获取
+ */
+async function readBuilds() {
   try {
-    const data = fs.readFileSync(dataPath, 'utf-8')
-    return JSON.parse(data)
+    const { blob } = await get(BLOB_PATH)
+    if (!blob) return []
+
+    const response = await fetch(blob.url)
+    const data = await response.json()
+    return Array.isArray(data) ? data : []
   } catch (error) {
     return []
   }
 }
 
-// 写入 builds 数据
-function writeBuilds(builds) {
-  fs.writeFileSync(dataPath, JSON.stringify(builds, null, 2), 'utf-8')
+/**
+ * 写入 builds 数据
+ * 上传到 Vercel Blob 存储
+ */
+async function writeBuilds(builds) {
+  try {
+    await put(BLOB_PATH, JSON.stringify(builds, null, 2), {
+      access: 'public',
+      addRandomSuffix: false,
+    })
+    return true
+  } catch (error) {
+    console.error('Failed to write builds:', error)
+    return false
+  }
 }
 
 // GET - 获取所有改枪方案
 export async function GET() {
   try {
-    const builds = readBuilds()
+    const builds = await readBuilds()
     return NextResponse.json({ success: true, builds })
   } catch (error) {
     return NextResponse.json(
@@ -45,7 +63,7 @@ export async function POST(request) {
       )
     }
 
-    const builds = readBuilds()
+    const builds = await readBuilds()
 
     const newBuild = {
       id: `${gunId}-build-${Date.now()}`,
@@ -58,7 +76,7 @@ export async function POST(request) {
     }
 
     builds.push(newBuild)
-    writeBuilds(builds)
+    await writeBuilds(builds)
 
     return NextResponse.json({ success: true, build: newBuild })
   } catch (error) {
@@ -82,7 +100,7 @@ export async function DELETE(request) {
       )
     }
 
-    const builds = readBuilds()
+    const builds = await readBuilds()
     const filteredBuilds = builds.filter(build => build.id !== id)
 
     if (filteredBuilds.length === builds.length) {
@@ -92,7 +110,7 @@ export async function DELETE(request) {
       )
     }
 
-    writeBuilds(filteredBuilds)
+    await writeBuilds(filteredBuilds)
 
     return NextResponse.json({
       success: true,
