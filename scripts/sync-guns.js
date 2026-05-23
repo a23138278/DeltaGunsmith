@@ -68,8 +68,9 @@ function getDefaultDescription(name, category) {
 // 从 dpcamp.cn HTML 解析数据
 function parseGunDataFromHTML(html) {
   const guns = []
-  const rowRegex = /<tr[^>]*>\s*<td[^>]*>.*?<img[^>]+src="([^"]+)"[^>]*>.*?<\/td>\s*<td[^>]*>([^<]+)<\/td>/gs
-  
+  // 修复：使用非贪婪匹配 [^>]*?，允许 src 属性前后有空格，用 \b 确保匹配 src 而非 data-src 等
+  const rowRegex = /<tr[^>]*>\s*<td[^>]*>.*?<img[^>]*?\bsrc\s*=\s*"([^"]+)"[^>]*>.*?<\/td>\s*<td[^>]*>([^<]+)<\/td>/gs
+
   let match
   while ((match = rowRegex.exec(html)) !== null) {
     const imageUrl = match[1].trim()
@@ -358,14 +359,14 @@ async function main() {
   } else {
     // 1. 先尝试 df-build.com（最新，包含S8/S9新枪）
     remoteGuns = await fetchFromDfBuild()
-    
+
     // 2. 失败则尝试 dpcamp.cn（备用）
-    if (!remoteGuns) {
+    if (!remoteGuns || remoteGuns.length === 0) {
       remoteGuns = await fetchFromDpcamp()
     }
-    
+
     // 3. 再失败则尝试本地导入
-    if (!remoteGuns) {
+    if (!remoteGuns || remoteGuns.length === 0) {
       remoteGuns = readFromImports()
     }
   }

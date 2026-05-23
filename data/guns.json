@@ -4,328 +4,286 @@
     "name": "Vector冲锋枪",
     "category": "冲锋枪",
     "description": "超高射速，近战王者",
-    "image": "https://aka.doubaocdn.com/s/vaJ81wR63k"
+    "image": "https://aka.doubaocdn.com/s/Q0XG1wR4gd"
   },
   {
     "id": "m250",
     "name": "M250通用机枪",
     "category": "轻机枪",
     "description": "重火力压制，弹匣容量大",
-    "image": "https://aka.doubaocdn.com/s/sT101wR63k"
+    "image": "https://aka.doubaocdn.com/s/gmQ11wR4gd"
   },
   {
     "id": "pkm",
     "name": "PKM通用机枪",
     "category": "轻机枪",
     "description": "苏制经典通用机枪，火力持续性强",
-    "image": "https://aka.doubaocdn.com/s/RVDE1wR63k"
+    "image": "https://aka.doubaocdn.com/s/whln1wR4gd"
   },
   {
     "id": "m14",
     "name": "M14射手步枪",
     "category": "射手步枪",
     "description": "经典半自动步枪，中远距离精准",
-    "image": "https://aka.doubaocdn.com/s/W8vO1wR63k"
+    "image": "https://aka.doubaocdn.com/s/SCTS1wR4gd"
   },
   {
     "id": "p90",
     "name": "P90冲锋枪",
     "category": "冲锋枪",
     "description": "大弹匣容量，适合近距离突击",
-    "image": "https://aka.doubaocdn.com/s/QDFV1wR63k"
+    "image": "https://aka.doubaocdn.com/s/Pja11wR4gd"
   },
   {
     "id": "asval",
     "name": "AS Val突击步枪",
     "category": "突击步枪",
     "description": "俄制微声突击步枪，隐蔽性强",
-    "image": "https://aka.doubaocdn.com/s/bQl41wR63k"
+    "image": "https://aka.doubaocdn.com/s/rxhV1wR4gd"
   },
   {
     "id": "ash12",
     "name": "ASh-12战斗步枪",
     "category": "战斗步枪",
     "description": "大口径战斗步枪，近战威力巨大",
-    "image": "https://aka.doubaocdn.com/s/4qvR1wR63k"
+    "image": "https://aka.doubaocdn.com/s/6oES1wR4gd"
   },
   {
     "id": "mp7",
     "name": "MP7冲锋枪",
     "category": "冲锋枪",
     "description": "个人防卫武器，小巧轻便",
-    "image": "https://aka.doubaocdn.com/s/ZXdQ1wR63k"
+    "image": "https://aka.doubaocdn.com/s/jZho1wR4gd"
   },
   {
     "id": "qcq171",
     "name": "QCQ171冲锋枪",
     "category": "冲锋枪",
     "description": "国产新型冲锋枪，性能均衡",
-    "image": "https://aka.doubaocdn.com/s/Pjlb1wR63k"
+    "image": "https://aka.doubaocdn.com/s/3TEw1wR4gd"
   },
   {
     "id": "sr3m",
     "name": "SR-3M紧凑突击步枪",
     "category": "突击步枪",
     "description": "紧凑型突击步枪，适合CQB作战",
-    "image": "https://aka.doubaocdn.com/s/btH41wR63k"
+    "image": "https://aka.doubaocdn.com/s/Lu9c1wR4gd"
   },
   {
     "id": "m7",
     "name": "M7战斗步枪",
     "category": "战斗步枪",
     "description": "美军新一代战斗步枪，精准度高",
-    "image": "https://aka.doubaocdn.com/s/xUFI1wR63k"
+    "image": "https://aka.doubaocdn.com/s/v0HB1wR4gd"
   },
   {
     "id": "g18",
     "name": "G18",
     "category": "手枪",
     "description": "全自动手枪，近距离爆发力强",
-    "image": "https://aka.doubaocdn.com/s/bbr61wR63k"
+    "image": "https://aka.doubaocdn.com/s/hdsy1wR4gd"
   },
   {
     "id": "m249",
     "name": "M249轻机枪",
     "category": "轻机枪",
     "description": "班用自动武器，火力压制利器",
-    "image": "https://aka.doubaocdn.com/s/4U4F1wR63k"
+    "image": "https://aka.doubaocdn.com/s/0cvo1wR4gd"
   },
   {
     "id": "k416",
     "name": "K416突击步枪",
     "category": "突击步枪",
     "description": "德制突击步枪，性能稳定可靠",
-    "image": "https://aka.doubaocdn.com/s/6MKN1wR63k"
+    "image": "https://aka.doubaocdn.com/s/PQuc1wR4gd"
   },
   {
-    "id": "yongshi",
+    "id": "",
     "name": "勇士冲锋枪",
     "category": "冲锋枪",
-    "description": "国产冲锋枪，近战性能出色",
-    "image": "https://aka.doubaocdn.com/s/Q3Sc1wR63k"
+    "description": "射速快，适合近距离作战",
+    "image": "https://aka.doubaocdn.com/s/o0yE1wR4gd"
   },
   {
     "id": "qjb201",
     "name": "QJB201轻机枪",
     "category": "轻机枪",
     "description": "国产轻机枪，弹链供弹火力持续",
-    "image": "https://aka.doubaocdn.com/s/22LR1wR63k"
-  },
-  {
-    "id": "tenglong",
-    "name": "腾龙突击步枪",
-    "category": "突击步枪",
-    "description": "国产新型突击步枪，综合性能优秀",
-    "image": "https://aka.doubaocdn.com/s/sDfQ1wR63k"
+    "image": "https://aka.doubaocdn.com/s/Fzz41wR4gd"
   },
   {
     "id": "mp5",
     "name": "MP5冲锋枪",
     "category": "冲锋枪",
     "description": "经典冲锋枪，射速快，适合近战",
-    "image": "https://aka.doubaocdn.com/s/9ltg1wR63k"
+    "image": "https://aka.doubaocdn.com/s/Ykbx1wR4gd"
   },
   {
     "id": "akm",
     "name": "AKM突击步枪",
     "category": "突击步枪",
     "description": "经典苏制步枪，伤害高，后坐力较大",
-    "image": "https://aka.doubaocdn.com/s/c0RD1wR63k"
+    "image": "https://aka.doubaocdn.com/s/TAOi1wR4gd"
   },
   {
     "id": "scarh",
     "name": "SCAR-H战斗步枪",
     "category": "战斗步枪",
     "description": "模块化战斗步枪，适应性强",
-    "image": "https://aka.doubaocdn.com/s/SBWS1wR63k"
+    "image": "https://aka.doubaocdn.com/s/U6lL1wR4gd"
   },
   {
     "id": "93r",
     "name": "93R",
     "category": "手枪",
     "description": "三连发手枪，近距离爆发力强",
-    "image": "https://aka.doubaocdn.com/s/4B4U1wR63k"
+    "image": "https://aka.doubaocdn.com/s/jCJY1wR4gd"
   },
   {
     "id": "sks",
     "name": "SKS射手步枪",
     "category": "射手步枪",
     "description": "经典半自动步枪，中远距离精准",
-    "image": "https://aka.doubaocdn.com/s/lUVR1wR63k"
+    "image": "https://aka.doubaocdn.com/s/c9Za1wR4gd"
   },
   {
     "id": "m16a4",
     "name": "M16A4突击步枪",
     "category": "突击步枪",
     "description": "经典美军步枪，三连发精准度高",
-    "image": "https://aka.doubaocdn.com/s/a3Jw1wR63k"
+    "image": "https://aka.doubaocdn.com/s/pCET1wR4gd"
   },
   {
     "id": "uzi",
     "name": "UZI冲锋枪",
     "category": "冲锋枪",
     "description": "经典微型冲锋枪，小巧便携",
-    "image": "https://aka.doubaocdn.com/s/oZBs1wR63k"
+    "image": "https://aka.doubaocdn.com/s/Tzws1wR4gd"
   },
   {
     "id": "m4a1",
     "name": "M4A1突击步枪",
     "category": "突击步枪",
     "description": "均衡型突击步枪，稳定性好",
-    "image": "https://aka.doubaocdn.com/s/t8zi1wR63k"
+    "image": "https://aka.doubaocdn.com/s/BLfL1wR4gd"
   },
   {
     "id": "ptr32",
     "name": "PTR-32突击步枪",
     "category": "突击步枪",
     "description": "基于AK平台的现代化突击步枪",
-    "image": "https://aka.doubaocdn.com/s/o9H71wR63k"
+    "image": "https://aka.doubaocdn.com/s/hIj71wR4gd"
   },
   {
     "id": "smg45",
     "name": "SMG-45冲锋枪",
     "category": "冲锋枪",
     "description": ".45口径冲锋枪，停止作用强",
-    "image": "https://aka.doubaocdn.com/s/HCrO1wR63k"
-  },
-  {
-    "id": "yeniuz",
-    "name": "野牛冲锋枪",
-    "category": "冲锋枪",
-    "description": "螺旋弹筒供弹，弹容量大",
-    "image": "https://aka.doubaocdn.com/s/5s9W1wR63k"
+    "image": "https://aka.doubaocdn.com/s/BLNF1wR4gd"
   },
   {
     "id": "g3",
     "name": "G3战斗步枪",
     "category": "战斗步枪",
     "description": "德制战斗步枪，威力大射程远",
-    "image": "https://aka.doubaocdn.com/s/bA3S1wR63k"
+    "image": "https://aka.doubaocdn.com/s/yUlu1wR4gd"
   },
   {
     "id": "sg552",
     "name": "SG552突击步枪",
     "category": "突击步枪",
     "description": "瑞士突击步枪，紧凑轻便",
-    "image": "https://aka.doubaocdn.com/s/yqpU1wR63k"
+    "image": "https://aka.doubaocdn.com/s/GeNx1wR4gd"
   },
   {
     "id": "ak12",
     "name": "AK-12突击步枪",
     "category": "突击步枪",
     "description": "AK系列现代化改进型，性能全面提升",
-    "image": "https://aka.doubaocdn.com/s/9YYL1wR63k"
+    "image": "https://aka.doubaocdn.com/s/7FHi1wR4gd"
   },
   {
     "id": "aug",
     "name": "AUG突击步枪",
     "category": "突击步枪",
     "description": "奥地利无托步枪，精准度高",
-    "image": "https://aka.doubaocdn.com/s/DVwh1wR63k"
+    "image": "https://aka.doubaocdn.com/s/0t9b1wR4gd"
   },
   {
     "id": "mini14",
     "name": "Mini-14射手步枪",
     "category": "射手步枪",
     "description": "轻型半自动步枪，适合中距离",
-    "image": "https://aka.doubaocdn.com/s/IBov1wR63k"
+    "image": "https://aka.doubaocdn.com/s/EY4M1wR4gd"
   },
   {
     "id": "qbz951",
     "name": "QBZ95-1突击步枪",
     "category": "突击步枪",
     "description": "国产无托突击步枪，稳定性好",
-    "image": "https://aka.doubaocdn.com/s/JK9J1wR63k"
+    "image": "https://aka.doubaocdn.com/s/ZYUF1wR4gd"
   },
   {
     "id": "sr25",
     "name": "SR-25射手步枪",
     "category": "射手步枪",
     "description": "精确射手步枪，半自动高精度",
-    "image": "https://aka.doubaocdn.com/s/V4CX1wR63k"
+    "image": "https://aka.doubaocdn.com/s/XoEN1wR4gd"
   },
   {
     "id": "aks74u",
     "name": "AKS-74U突击步枪",
     "category": "突击步枪",
     "description": "紧凑型突击步枪，适合近距离",
-    "image": "https://aka.doubaocdn.com/s/8grT1wR63k"
+    "image": "https://aka.doubaocdn.com/s/HwIm1wR4gd"
   },
   {
     "id": "car15",
     "name": "CAR-15突击步枪",
     "category": "突击步枪",
     "description": "卡宾枪版本M16，轻便灵活",
-    "image": "https://aka.doubaocdn.com/s/DU131wR63k"
+    "image": "https://aka.doubaocdn.com/s/Vx1v1wR4gd"
   },
   {
     "id": "vss",
     "name": "VSS射手步枪",
     "category": "射手步枪",
     "description": "俄制微声狙击步枪，隐蔽性强",
-    "image": "https://aka.doubaocdn.com/s/cwAY1wR63k"
+    "image": "https://aka.doubaocdn.com/s/o4Eo1wR4gd"
   },
   {
     "id": "svd",
     "name": "SVD狙击步枪",
     "category": "狙击步枪",
     "description": "经典俄制狙击步枪，精准可靠",
-    "image": "https://aka.doubaocdn.com/s/0pxU1wR63k"
+    "image": "https://aka.doubaocdn.com/s/gxju1wR4gd"
   },
   {
     "id": "psg1",
     "name": "PSG-1射手步枪",
     "category": "射手步枪",
     "description": "德制精确步枪，半自动高精度",
-    "image": "https://aka.doubaocdn.com/s/1U6s1wR63k"
+    "image": "https://aka.doubaocdn.com/s/YqI91wR4gd"
   },
   {
     "id": "m1911",
     "name": "M1911",
     "category": "手枪",
     "description": "经典.45口径手枪，威力大",
-    "image": "https://aka.doubaocdn.com/s/cwXO1wR63k"
+    "image": "https://aka.doubaocdn.com/s/3zGW1wR4gd"
   },
   {
     "id": "sr9",
     "name": "SR-9射手步枪",
     "category": "射手步枪",
     "description": "精确射手步枪，适合中远距离",
-    "image": "https://aka.doubaocdn.com/s/iFih1wR63k"
+    "image": "https://aka.doubaocdn.com/s/kAPI1wR4gd"
   },
   {
     "id": "awm",
     "name": "AWM狙击步枪",
     "category": "狙击步枪",
     "description": "高精度狙击步枪，一击必杀",
-    "image": "https://aka.doubaocdn.com/s/0KSH1wR63k"
-  },
-  {
-    "id": "mcx",
-    "name": "MCX LT突击步枪",
-    "category": "突击步枪",
-    "description": "S8赛季新枪，.300BLK口径，高射速低后坐，近战腰射天花板",
-    "image": "https://aka.doubaocdn.com/s/sFPN1wR67G"
-  },
-  {
-    "id": "fs12",
-    "name": "FS-12霰弹枪",
-    "category": "霰弹枪",
-    "description": "S8赛季新枪，双模式切换，泵动模式近身秒杀利器",
-    "image": "https://aka.doubaocdn.com/s/LROA1wR67G"
-  },
-  {
-    "id": "ar57",
-    "name": "AR-57冲锋枪",
-    "category": "冲锋枪",
-    "description": "S9赛季新枪，高射速800发/分搭配57发大弹鼓，腰射性能强",
-    "image": "https://aka.doubaocdn.com/s/Oqkh1wR67L"
-  },
-  {
-    "id": "m82",
-    "name": "巴雷特M82",
-    "category": "狙击步枪",
-    "description": "S9赛季新枪，.50口径半自动反器材重狙，可穿透薄掩体",
-    "image": "https://aka.doubaocdn.com/s/XWMy1wR67L"
+    "image": "https://aka.doubaocdn.com/s/dKJE1wR4gd"
   }
 ]
