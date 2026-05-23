@@ -27,7 +27,7 @@ async function readBuilds() {
 async function writeBuilds(builds) {
   try {
     await put(BLOB_PATH, JSON.stringify(builds, null, 2), {
-      access: 'public',
+      access: 'private',
       addRandomSuffix: false,
     })
     return true
