@@ -1,16 +1,36 @@
 import { NextResponse } from 'next/server'
-import { get, put, del, list } from '@vercel/blob'
+import { get, put } from '@vercel/blob'
+import fs from 'fs'
+import path from 'path'
 
 const BLOB_PATH = 'data/builds.json'
+const LOCAL_PATH = path.join(process.cwd(), 'data', 'builds.json')
+
+// 判断运行环境：本地开发用本地文件，Vercel 用 Blob
+const isLocal = process.env.NODE_ENV === 'development' && !process.env.VERCEL
 
 /**
  * 读取 builds 数据
- * 从 Vercel Blob 存储中获取
+ * 本地开发用本地 JSON 文件，Vercel 用 Blob 存储
  */
 async function readBuilds() {
   try {
-    console.log('[readBuilds] starting...')
-    // v2.x 必须传入 options 参数
+    console.log('[readBuilds] starting...', isLocal ? '(local mode)' : '(blob mode)')
+
+    if (isLocal) {
+      // 本地模式：直接读取本地 JSON 文件
+      if (!fs.existsSync(LOCAL_PATH)) {
+        console.log('[readBuilds] local file not found, returning empty')
+        return []
+      }
+      const content = fs.readFileSync(LOCAL_PATH, 'utf-8')
+      console.log('[readBuilds] local read', content.length, 'bytes')
+      const data = JSON.parse(content)
+      console.log('[readBuilds] local parsed', data.length, 'items')
+      return Array.isArray(data) ? data : []
+    }
+
+    // Vercel 模式：从 Blob 读取
     const result = await get(BLOB_PATH, { access: 'private' })
     console.log('[readBuilds] get result:', result ? 'found' : 'null', 'statusCode:', result?.statusCode)
 
@@ -19,11 +39,8 @@ async function readBuilds() {
       return []
     }
 
-    // 读取流内容
     const text = await new Response(result.stream).text()
     console.log('[readBuilds] read', text.length, 'bytes')
-    console.log('[readBuilds] content preview:', text.substring(0, 100))
-
     const data = JSON.parse(text)
     console.log('[readBuilds] parsed', data.length, 'items')
     return Array.isArray(data) ? data : []
@@ -35,15 +52,24 @@ async function readBuilds() {
 
 /**
  * 写入 builds 数据
- * 上传到 Vercel Blob 存储
+ * 本地开发用本地 JSON 文件，Vercel 用 Blob 存储
  */
 async function writeBuilds(builds) {
   try {
-    console.log('[writeBuilds] writing', builds.length, 'items...')
+    console.log('[writeBuilds] writing', builds.length, 'items...', isLocal ? '(local mode)' : '(blob mode)')
+
+    if (isLocal) {
+      // 本地模式：直接写入本地 JSON 文件
+      fs.writeFileSync(LOCAL_PATH, JSON.stringify(builds, null, 2), 'utf-8')
+      console.log('[writeBuilds] local success:', LOCAL_PATH)
+      return true
+    }
+
+    // Vercel 模式：上传到 Blob
     const result = await put(BLOB_PATH, JSON.stringify(builds, null, 2), {
       access: 'private',
       addRandomSuffix: false,
-      allowOverwrite: true,  // v2.x 必须允许覆盖
+      allowOverwrite: true,
     })
     console.log('[writeBuilds] success:', result?.pathname)
     return true
