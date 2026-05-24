@@ -9,7 +9,8 @@ const BLOB_PATH = 'data/builds.json'
  */
 async function readBuilds() {
   try {
-    const result = await get(BLOB_PATH)
+    // v2.x 必须传入 options 参数
+    const result = await get(BLOB_PATH, { access: 'private' })
     if (!result || result.statusCode !== 200) {
       console.log('readBuilds: no data or status', result?.statusCode)
       return []
