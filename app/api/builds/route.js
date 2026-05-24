@@ -7,7 +7,9 @@ const BLOB_PATH = 'data/builds.json'
 const LOCAL_PATH = path.join(process.cwd(), 'data', 'builds.json')
 
 // 判断运行环境：本地开发用本地文件，Vercel 用 Blob
-const isLocal = process.env.NODE_ENV === 'development' && !process.env.VERCEL
+// NODE_ENV=production 且 VERCEL 环境变量存在时，认为是 Vercel 环境
+const isLocal = process.env.NODE_ENV !== 'production' || !process.env.VERCEL
+console.log('[ENV] NODE_ENV:', process.env.NODE_ENV, 'VERCEL:', process.env.VERCEL, 'isLocal:', isLocal)
 
 /**
  * 读取 builds 数据
