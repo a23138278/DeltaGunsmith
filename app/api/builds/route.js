@@ -9,12 +9,11 @@ const BLOB_PATH = 'data/builds.json'
  */
 async function readBuilds() {
   try {
-    const { blob } = await get(BLOB_PATH)
-    if (!blob) return []
+    const result = await get(BLOB_PATH)
+    if (!result) return []
 
-    // 使用 blob.download() 直接读取内容，SDK 会自动处理 private 权限认证
-    const stream = await blob.download()
-    const text = await stream.text()
+    // 使用 Response 包装流，方便读取文本内容
+    const text = await new Response(result.stream).text()
     const data = JSON.parse(text)
     return Array.isArray(data) ? data : []
   } catch (error) {
