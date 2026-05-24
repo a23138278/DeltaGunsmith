@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import guns from '../../data/guns.json'
 
@@ -29,6 +29,7 @@ function SubmitPageContent() {
 
 // 表单组件
 function SubmitForm({ gunId: initialGunId }) {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     gunId: initialGunId,
     title: '',
@@ -73,9 +74,10 @@ function SubmitForm({ gunId: initialGunId }) {
       }
 
       setSubmitted(true)
+      // 自动跳转到对应枪械的详情页面
+      router.push(`/guns/${formData.gunId}`)
     } catch (err) {
       setError(err.message)
-    } finally {
       setSubmitting(false)
     }
   }
