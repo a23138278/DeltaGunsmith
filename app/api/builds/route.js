@@ -10,11 +10,16 @@ const BLOB_PATH = 'data/builds.json'
 async function readBuilds() {
   try {
     const result = await get(BLOB_PATH)
-    if (!result) return []
+    if (!result || result.statusCode !== 200) {
+      console.log('readBuilds: no data or status', result?.statusCode)
+      return []
+    }
 
-    // 使用 Response 包装流，方便读取文本内容
+    // 读取流内容
     const text = await new Response(result.stream).text()
+    console.log('readBuilds: read', text.length, 'bytes')
     const data = JSON.parse(text)
+    console.log('readBuilds: parsed', data.length, 'items')
     return Array.isArray(data) ? data : []
   } catch (error) {
     console.error('readBuilds error:', error)
