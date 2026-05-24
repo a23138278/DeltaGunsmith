@@ -43,6 +43,7 @@ async function writeBuilds(builds) {
     const result = await put(BLOB_PATH, JSON.stringify(builds, null, 2), {
       access: 'private',
       addRandomSuffix: false,
+      allowOverwrite: true,  // v2.x 必须允许覆盖
     })
     console.log('[writeBuilds] success:', result?.pathname)
     return true
@@ -101,6 +102,13 @@ export async function POST(request) {
 
     const writeResult = await writeBuilds(builds)
     console.log('[POST /api/builds] write result:', writeResult)
+
+    if (!writeResult) {
+      return NextResponse.json(
+        { error: '保存失败，请稍后重试' },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json({ success: true, build: newBuild })
   } catch (error) {
