@@ -12,10 +12,13 @@ async function readBuilds() {
     const { blob } = await get(BLOB_PATH)
     if (!blob) return []
 
-    const response = await fetch(blob.url)
-    const data = await response.json()
+    // 使用 blob.download() 直接读取内容，SDK 会自动处理 private 权限认证
+    const stream = await blob.download()
+    const text = await stream.text()
+    const data = JSON.parse(text)
     return Array.isArray(data) ? data : []
   } catch (error) {
+    console.error('readBuilds error:', error)
     return []
   }
 }

@@ -1,10 +1,29 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import guns from '../data/guns.json'
-import builds from '../data/builds.json'
 import GunListWithSearch from './components/GunListWithSearch'
 import AutoSyncBanner from './components/AutoSyncBanner'
 
 export default function Home() {
   const categories = [...new Set(guns.map(g => g.category))]
+  const [builds, setBuilds] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/builds')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setBuilds(data.builds)
+        }
+        setLoading(false)
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+  }, [])
+
   const totalBuilds = builds.length
 
   return (
@@ -17,7 +36,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm mb-8">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              已收录 {guns.length} 款枪械 · {totalBuilds} 套方案
+              已收录 {guns.length} 款枪械 · {loading ? '加载中...' : totalBuilds} 套方案
             </div>
             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
               <span className="bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent">
@@ -55,7 +74,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: '枪械总数', value: guns.length, suffix: '款' },
-            { label: '改枪方案', value: totalBuilds, suffix: '套' },
+            { label: '改枪方案', value: loading ? '...' : totalBuilds, suffix: '套' },
             { label: '枪械分类', value: categories.length, suffix: '类' },
             { label: '今日更新', value: 2, suffix: '条' },
           ].map((stat) => (

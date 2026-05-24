@@ -1,19 +1,34 @@
 'use client'
 
-import { useState, use } from 'react'
+import { useState, use, useEffect } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import guns from '../../../data/guns.json'
-import builds from '../../../data/builds.json'
 
 export default function GunPage({ params }) {
   const { id } = use(params)
   const gun = guns.find(g => g.id === id)
   if (!gun) notFound()
 
-  const [gunBuilds, setGunBuilds] = useState(builds.filter(b => b.gunId === id))
+  const [gunBuilds, setGunBuilds] = useState([])
+  const [loading, setLoading] = useState(true)
   const [copiedId, setCopiedId] = useState(null)
   const [deletingId, setDeletingId] = useState(null)
+
+  // 动态获取改枪方案数据
+  useEffect(() => {
+    fetch('/api/builds')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setGunBuilds(data.builds.filter(b => b.gunId === gun.id))
+        }
+        setLoading(false)
+      })
+      .catch(() => {
+        setLoading(false)
+      })
+  }, [gun.id])
 
   const handleCopy = (code, id) => {
     navigator.clipboard.writeText(code)
@@ -81,13 +96,15 @@ export default function GunPage({ params }) {
             <p className="text-gray-400 text-lg leading-relaxed">{gun.description}</p>
             <div className="mt-6 flex items-center gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-amber-400">{gunBuilds.length}</div>
+                <div className="text-2xl font-bold text-amber-400">
+                  {loading ? '...' : gunBuilds.length}
+                </div>
                 <div className="text-xs text-gray-500">改枪方案</div>
               </div>
               <div className="w-px h-10 bg-white/[0.06]" />
               <div className="text-center">
                 <div className="text-2xl font-bold text-white">
-                  {gunBuilds.length > 0 ? gunBuilds.reduce((acc, b) => acc + Object.keys(b.parts).length, 0) : 0}
+                  {loading ? '...' : (gunBuilds.length > 0 ? gunBuilds.reduce((acc, b) => acc + Object.keys(b.parts).length, 0) : 0)}
                 </div>
                 <div className="text-xs text-gray-500">配件搭配</div>
               </div>
@@ -101,7 +118,7 @@ export default function GunPage({ params }) {
           <h2 className="section-title mb-0">
             改枪方案
             <span className="text-sm font-normal text-gray-500 ml-2">
-              {gunBuilds.length} 套
+              {loading ? '加载中...' : gunBuilds.length} 套
             </span>
           </h2>
           <Link

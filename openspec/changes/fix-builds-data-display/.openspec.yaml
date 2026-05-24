@@ -1,0 +1,8 @@
+name: fix-builds-data-display
+description: 修复改枪方案提交后前端页面无法显示的问题
+status: active
+created: 2026-05-24
+artifacts:
+  - proposal.md
+  - design.md
+  - tasks.md
